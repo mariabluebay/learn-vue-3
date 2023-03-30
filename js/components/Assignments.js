@@ -21,14 +21,18 @@ export default {
 
     data() {
         return {
-            assignments: [
-                { name: 'BAU', complete: false , id: 1, tag: 'bau'},
-                { name: 'Annual Appraisal', complete: false , id: 2, tag: 'personal'},
-            ],
+            assignments: [],
             newAssignment : '',
         }
     },
 
+    created() {
+        fetch('http://localhost:3001/assignments')
+            .then(response => response.json())
+            .then(assigments => {
+                this.assignments = assigments;
+            });
+    },
     computed: {
 
         filters() {

@@ -1,0 +1,16 @@
+{
+  "assignments":[
+    {
+      "name":"BAU",
+      "complete":true,
+      "id":1,
+      "tag":"bau"
+    },
+    {
+      "name":"Annual Appraisal",
+      "complete":false,
+      "id":2,
+      "tag":"personal"
+    }
+  ]
+}
