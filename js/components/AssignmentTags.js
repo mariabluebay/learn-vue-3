@@ -3,12 +3,10 @@ export default {
             <div v-show="tags" class="flex gap-2">
                 <button 
                 v-show="tag"
-                @click="$emit('change', tag)"
                 v-for="tag in tags" 
                 class="border rounded px-1 py-px text-xs"
-                :class="{
-                'border-blue-500 text-blue-500': tag === currentTag
-                }"
+                :class="{'border-blue-500 text-blue-500': tag === currentTag}"
+                @click="$emit('update:currentTag', tag)"
                 > 
                     {{ tag }}
                 </button>
@@ -16,7 +14,7 @@ export default {
     `,
     props: {
         initialTags: Array,
-        currentTag: String
+        currentTag: String,
     },
 
     computed: {
