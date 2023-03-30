@@ -6,12 +6,15 @@
     <script src="https://unpkg.com/vue@3"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="h-full grid place-items-center bg-gray-800 text-white">
+<body class="h-full grid place-items-center bg-gray-800">
 <div id="app">
-    <app-button>Submit</app-button>
+    <input
+            type="text"
+            v-model="name"
+    >
 </div>
 <script type="module">
-    import App from "./js/components/App.js";
+    import App from "./js/components/App1.js";
 
     Vue.createApp(App).mount('#app');
 </script>
