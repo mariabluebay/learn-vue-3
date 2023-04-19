@@ -14,6 +14,7 @@ export default {
         <assignment-list 
             :assignments="filters.completed"
             title="Completed" 
+            can-toggle
         ></assignment-list>
         
     </section>

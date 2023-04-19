@@ -4,11 +4,15 @@ import AssignmentTags from "./AssignmentTags.js";
 export default {
     components: { Assignment, AssignmentTags },
     template: `
-        <section class="mt-8 w-60" >
-            <h2 class="font-bold mb-2">
-            {{ title }}
-                <span>({{ assignments.length }})</span>
-            </h2>
+        <section v-show="show && assignments.length" class="mt-8 w-60" >
+            <div class="flex justify-between items-start">
+                <h2 class="font-bold mb-2">
+                    {{ title }}
+                    <span>({{ assignments.length }})</span>
+                </h2>
+                
+                <button v-show="canToggle" @click="show = false">&times</button>
+            </div>
             
             <assignment-tags 
                 :initial-tags="assignments.map(a => a.tag)"
@@ -32,11 +36,16 @@ export default {
     props: {
         assignments: Array,
         title: String,
+        canToggle: {
+            type: Boolean,
+            default: false,
+        }
     },
 
     data() {
         return {
-            currentTag: 'all'
+            currentTag: 'all',
+            show: true
         };
     },
     computed: {
